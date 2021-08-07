@@ -1,0 +1,95 @@
+<section role="main" class="content-body content-body-modern" style="margin-top: 100px; margin-left: 20px;">
+  <div class="row">
+    <h3 class="mt-5 text-center">{{patientPageTitle}}</h3>
+    <div class="col-md-12">
+      <div class="card" style="border:none; overflow-x: hidden;">
+        <div class="card-body">
+          <form [formGroup]="patientForm" (ngSubmit)='onSubmit()'>
+            <div class="row filter-cont">
+              <div class="col-md-2"></div>
+              <div class="col-md-4 pl-0">
+                <div class="form-group pt-0">
+                  <label class="required-field font-weight-bold">Consultant Name</label>
+                  <input type="text" formControlName="name" class="form-control" placeholder="Patient Name"
+                    required />
+                  <div class="text-danger"
+                  *ngIf="patientForm.controls['name'].errors?.required &&
+                  patientForm.controls['name'].touched">
+                    Patient Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 pl-0">
+                <div class="form-group pt-0">
+                  <label class="required-field font-weight-bold">User Name</label>
+                  <input type="text" formControlName="username" class="form-control" placeholder="User Name" required />
+                  <!-- <div class="text-danger"
+                  *ngIf="patientForm.controls['username'].errors?.required &&
+                  patientForm.controls['username'].touched">
+                    Patient Name is required
+                  </div> -->
+                </div>
+              </div>
+            </div><br />
+
+            <div class="row filter-cont">
+              <div class="col-md-2"></div>
+              <div class="col-md-4 pl-0">
+                <div class="pt-0">
+                  <label class="font-weight-bold required-field">Email Address</label>
+                  <input type="text" formControlName="email" class="form-control" placeholder="Email Address"
+                    required />
+                  <div *ngIf="patientForm.controls['email'].touched ">
+                    <p class="text-danger m-0 mt-1" [hidden]="!patientForm.get('email').errors?.required">
+                      Email address is required
+                    </p>
+                    <p class="text-danger m-0 mt-1" [hidden]="!patientForm.get('email').errors?.pattern">
+                      Kindly enter valid email!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 pl-0">
+                <div class="pt-0">
+                  <label class="font-weight-bold required-field">Address</label>
+                  <input type="text" formControlName="address" class="form-control" placeholder="Address" required />
+                  <div class="text-danger"
+                  *ngIf="patientForm.controls['address'].errors?.required &&
+                  patientForm.controls['address'].touched">
+                    Address is required
+                  </div>
+                </div>
+              </div>
+            </div><br />
+
+            <div class="row filter-cont">
+              <div class="col-md-2"></div>
+              <div class="col-md-4 pl-0">
+                <div class="form-group pt-0">
+                  <label class="required-field font-weight-bold">Mobile No.</label>
+                  <input type="text" formControlName="mobile_number" class="form-control" placeholder="Mobile no." required />
+                  <div class="text-danger"
+                  *ngIf="patientForm.controls['mobile_number'].errors?.required &&
+                  patientForm.controls['mobile_number'].touched">
+                    Mobile number is required
+                  </div>
+                  <!-- <div class="text-danger" *ngIf="patientForm.get('mobile').errors?.maxlength">
+                    Please enter 10 digit mobile number
+                  </div> -->
+                  <!-- <div class="text-danger" *ngIf="patientForm.get('mobile').errors?.minlength">
+                    Please enter 10 digit mobile number
+                  </div> -->
+                </div>
+              </div>
+            </div><br>
+
+            <div class="text-center mt-5">
+              <button type="submit" class="btn bg-danger text-white" [routerLink]="['/pages/patient-details']">Cancel</button>
+              <button type="submit" class="btn bg-info text-white">{{button}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

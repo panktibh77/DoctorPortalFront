@@ -1,0 +1,29 @@
+<div>
+  <div class="test">
+      <input type="checkbox" class="menu-toggle" id="menu-toggle">
+      <div class="mobile-bar">
+          <label for="menu-toggle" class="menu-icon">
+              <span></span>
+          </label>
+      </div>
+
+      <header class="header">
+          <nav>
+              <ul>
+                  <li><a [routerLink]="['/pages/dashboard']">Dashboard</a></li>
+                  <li><a [routerLink]="['/pages/patient-details']">Patient Details</a></li>
+                  <li>
+                      <a [routerLink]="['/auth/login']">
+                          <p>Logout</p>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+      </header>
+
+      <a class="navbar-brand" style="padding:0px;">
+          <img src="./../../assets/project-image/vga-logo.png" alt="Doctor Portal App">
+      </a>
+
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<section role="main" class="content-body content-body-modern" style="margin-top: 100px; margin-left: 20px;">
+  <div class="row mx-5">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-10">
+          <h4>Patient List</h4>
+        </div>
+        <div class="col-md-2">
+          <button class="btn float-right" style="background-color: #169EEC;" [routerLink]="['/pages/add-patient']">
+            <i class="fa fa-plus text-white"><b> Add New Patient</b></i>
+          </button>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row filter-cont">
+            <div class="col-md-3 pl-0">
+              <div class="pt-0">
+                <label class="font-weight-bold">Patient Name</label>
+                <input type="text" class="form-control" (keyup.enter)="onSearch(searchPatients.value)"
+                  #searchPatients placeholder="Patient Name" required />
+              </div>
+            </div>
+            <div class="col-md-7"></div>
+            <div class="col-md-2 pt-2 text-right">
+              <label class="required-field"></label><br />
+              <button class="btn" (click)="onSearch(searchPatients.value)"
+                style="background-color: #169EEC; color: white;">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-body border">
+          <div class="table-responsive">
+            <table class="display table table-hover w-100 table-head-bg-secondary" width="100%">
+              <thead>
+                <tr>
+                  <th (click)="sort('patient_name')">Patient Name</th>
+                  <th>Email</th>
+                  <th (click)="sort('address')">Address</th>
+                  <th>Mobile Number</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let p of patient; let id = index">
+                  <td>{{ p.name }}</td>
+                  <td>{{ p.email }}</td>
+                  <td>{{ p.address }}</td>
+                  <td>{{ p.mobile_number }}</td>
+                  <td>
+                    <a style="cursor: pointer" (click)="editPatient(p.id)" title="Edit" class="icon-a">
+                      <i class="fa fa-edit icons-size icon-margin green"></i> </a>&nbsp;&nbsp;
+                    <a style="cursor: pointer" (click)="deletePatient(p.id)" title="Delete" class="icon-a">
+                      <i class="fa fa-trash ml-2 icons-size icon-margin red"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="consultant?.length == 0">
+                <tr>
+                  <td colspan="10" class="no-data-available text-center">No matching records found
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <ngb-pagination style="float: right" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page"
+              [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)">
+            </ngb-pagination> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

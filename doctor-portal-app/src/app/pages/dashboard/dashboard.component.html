@@ -1,0 +1,69 @@
+<section role="main" style="margin-top: 100px; margin-left: 20px;" class="content-body content-body-modern">
+  <div class="row">
+    <div class="col-xl-3">
+      <section class="card card-featured-left card-featured-tertiary mb-3">
+        <div class="card-body bg-info p-5">
+          <div class="widget-summary">
+            <div class="widget-summary-col">
+              <div class="summary">
+                <h4 class="title"><strong class="amount">{{totalPatients}}</strong></h4>
+                <div class="info">
+                  <h4>Patients</h4>
+                </div>
+              </div>
+            </div>
+            <div class="widget-summary-col widget-summary-col-icon">
+              <div class="summary-icon bg-tertiary">
+                <i class="fa fa-flag"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="col-xl-3">
+      <section class="card card-featured-left card-featured-tertiary mb-3" style="cursor: pointer;" [routerLink]="['/pages/add-patient']" routerLinkActive="router-link-active">
+        <div class="card-body bg-warning p-5">
+          <div class="widget-summary">
+            <div class="widget-summary-col">
+              <div class="summary">
+                <h4 class="title"><strong class="amount"></strong></h4>
+                <div class="info">
+                  <h4>Add Patient</h4>
+                </div>
+              </div>
+            </div>
+            <div class="widget-summary-col widget-summary-col-icon">
+              <div class="summary-icon bg-tertiary">
+                <i class="fa fa-user far fa-plus"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="col-xl-3">
+      <section class="card card-featured-left card-featured-tertiary mb-3" style="cursor: pointer;" [routerLink]="['/pages/patient-details']" routerLinkActive="router-link-active">
+        <div class="card-body bg-success p-5">
+          <div class="widget-summary">
+            <div class="widget-summary-col">
+              <div class="summary">
+                <h4 class="title"><strong class="amount"></strong></h4>
+                <div class="info">
+                  <h4>View Patients</h4>
+                </div>
+              </div>
+            </div>
+            <div class="widget-summary-col widget-summary-col-icon">
+              <div class="summary-icon bg-tertiary">
+                <i class="fa fa-user far fa-users"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
